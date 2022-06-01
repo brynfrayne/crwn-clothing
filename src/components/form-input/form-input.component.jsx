@@ -8,7 +8,7 @@ export default function FormInput({ label, ...otherProps }) {
         {label && (
         <label 
         className={`${
-            otherProps.value.length ? 'shrik' : ''
+            otherProps.value.length ? 'shrink' : ''
         } form-input-label`}
         >{label}
         </label>
