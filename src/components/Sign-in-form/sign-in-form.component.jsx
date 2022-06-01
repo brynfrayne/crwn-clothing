@@ -31,8 +31,7 @@ export default function SignInForm() {
               email,
               password
           );
-          setCurrentUser(user);
-          resetFormFields();
+            resetFormFields();
       } catch(error) {
           switch(error.code) {
               case 'auth/wrong-password':
@@ -49,7 +48,7 @@ export default function SignInForm() {
     
     const signInWithGoogle = async () => {
         const { user } = await signInWithGooglePopup();
-        const userDocRef = createUserDocumentFromAuth(user)
+        createUserDocumentFromAuth(user)
     }
     const handleChange = (event) => {
         const { name, value } = event.target;
