@@ -12,6 +12,8 @@ const addCartItem = (cartItems, productToAdd) => {
    return [...cartItems, { ...productToAdd, quantity: 1 }];
 };
 
+// !! going to try and create a decerement counter as the inverse of the addCartItem function above!!!
+
 export const CartContext = createContext({
     isCartOpen: false,
     setIsCartOpen: () => {},

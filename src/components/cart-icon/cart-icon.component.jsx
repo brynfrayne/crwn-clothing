@@ -6,7 +6,7 @@ import './cart-icon.styles.scss';
 
 export default function CartIcon() {
   const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
-  console.log(cartCount);
+  
   const toggleIsCartOpen = () => setIsCartOpen(!isCartOpen)
 
   return (
