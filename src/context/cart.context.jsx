@@ -12,12 +12,21 @@ const addCartItem = (cartItems, productToAdd) => {
    return [...cartItems, { ...productToAdd, quantity: 1 }];
 };
 
-// !! going to try and create a decerement counter as the inverse of the addCartItem function above!!!
 const deleteCartItem = (cartItems, productToDelete) => {
-    return cartItems.map((cartItem) => cartItem.id === productToDelete.id
+    
+    if (productToDelete.quantity > 1) {
+        return cartItems.map((cartItem) => cartItem.id === productToDelete.id
     ? { ...cartItem, quantity: cartItem.quantity - 1 }
     : cartItem
     );
+    } 
+    return deleteItem(cartItems, productToDelete);
+    
+};
+
+const deleteItem = (cartItems, productToDelete) => {
+    cartItems = cartItems.filter(item => item.id !== productToDelete.id)
+    return cartItems;
 }
 
 
@@ -26,6 +35,7 @@ export const CartContext = createContext({
     setIsCartOpen: () => {},
     cartItems: [],
     addItemToCart: () => {},
+    cartItemDecrement: () => {},
     deleteItemFromCart: () => {},
     cartCount: 0
 });
@@ -43,10 +53,13 @@ export const CartProvider = ({ children }) => {
     const addItemToCart = (productToAdd) => {
         setCartItems(addCartItem(cartItems, productToAdd));
     }
-    const deleteItemFromCart = (productToDelete) => {
+    const cartItemDecrement = (productToDelete) => {
         setCartItems(deleteCartItem(cartItems, productToDelete))
     }
-    const value = { isCartOpen, setIsCartOpen, addItemToCart, deleteItemFromCart, cartItems, cartCount };
+    const deleteItemFromCart = (productToDelete) => {
+        setCartItems(deleteItem(cartItems, productToDelete))
+    }
+    const value = { isCartOpen, setIsCartOpen, addItemToCart, cartItemDecrement, deleteItemFromCart, cartItems, cartCount };
 
     return (
         <CartContext.Provider value={value}> {children} </CartContext.Provider>
