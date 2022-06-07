@@ -4,7 +4,7 @@ import { CartContext } from '../../context/cart.context';
 import './checkout.styles.scss';
 
 export default function Checkout() {
-  const { cartItems, addItemToCart } = useContext(CartContext);
+  const { cartItems, addItemToCart, deleteItemFromCart } = useContext(CartContext);
   console.log(cartItems);
 
   return (
@@ -18,7 +18,7 @@ export default function Checkout() {
         </div>
         <div>
             {cartItems.map((item) => {
-                return <CheckoutItem key={item.id} item={item} addItem={addItemToCart}/>
+                return <CheckoutItem key={item.id} item={item} addItem={addItemToCart} deleteItem={deleteItemFromCart}/>
             })}    
         </div>
     </div>

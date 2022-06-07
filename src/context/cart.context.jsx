@@ -13,12 +13,20 @@ const addCartItem = (cartItems, productToAdd) => {
 };
 
 // !! going to try and create a decerement counter as the inverse of the addCartItem function above!!!
+const deleteCartItem = (cartItems, productToDelete) => {
+    return cartItems.map((cartItem) => cartItem.id === productToDelete.id
+    ? { ...cartItem, quantity: cartItem.quantity - 1 }
+    : cartItem
+    );
+}
+
 
 export const CartContext = createContext({
     isCartOpen: false,
     setIsCartOpen: () => {},
     cartItems: [],
     addItemToCart: () => {},
+    deleteItemFromCart: () => {},
     cartCount: 0
 });
 
@@ -35,7 +43,10 @@ export const CartProvider = ({ children }) => {
     const addItemToCart = (productToAdd) => {
         setCartItems(addCartItem(cartItems, productToAdd));
     }
-    const value = { isCartOpen, setIsCartOpen, addItemToCart, cartItems, cartCount };
+    const deleteItemFromCart = (productToDelete) => {
+        setCartItems(deleteCartItem(cartItems, productToDelete))
+    }
+    const value = { isCartOpen, setIsCartOpen, addItemToCart, deleteItemFromCart, cartItems, cartCount };
 
     return (
         <CartContext.Provider value={value}> {children} </CartContext.Provider>
