@@ -5,9 +5,6 @@ import './checkout.styles.scss';
 
 export default function Checkout() {
   const { cartItems, cartTotal } = useContext(CartContext);
-  console.log(cartItems);
-  console.log(cartTotal)
-  
 
   return (
     <div className='checkout-container'>
@@ -48,7 +45,7 @@ export default function Checkout() {
         </div>
         <span className='Total'>
             Total: 
-            {cartTotal}
+            ${cartTotal}
         </span>
     </div>
   )
