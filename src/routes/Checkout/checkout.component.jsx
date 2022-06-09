@@ -4,29 +4,52 @@ import { CartContext } from '../../context/cart.context';
 import './checkout.styles.scss';
 
 export default function Checkout() {
-  const { cartItems, addItemToCart, cartItemDecrement, deleteItemFromCart } = useContext(CartContext);
+  const { cartItems, cartTotal } = useContext(CartContext);
   console.log(cartItems);
+  console.log(cartTotal)
+  
 
   return (
-    <div>
-        <div className='checkout-column-title'>
-            <span>Product</span>
-            <span>Description</span>
-            <span>Quantity</span>
-            <span>Price</span>
-            <span>Remove</span>
+    <div className='checkout-container'>
+        <div className='checkout-header'>
+            <div className='header-block'>
+                <span>
+                    Product
+                </span>
+            </div>
+            <div className='header-block'>
+                <span>
+                    Description
+                </span>
+            </div>
+            <div className='header-block'>
+                <span>
+                    Quantity
+                </span>
+            </div>
+            <div className='header-block'>
+                <span>
+                    Price
+                </span>
+            </div>
+            <div className='header-block'>
+                <span>
+                    Remove
+                </span>
+            </div>
         </div>
         <div>
             {cartItems.map((item) => {
                 return <CheckoutItem 
                         key={item.id} 
                         item={item} 
-                        addItem={addItemToCart} 
-                        decrementItem={cartItemDecrement} 
-                        deleteItemFromCart={deleteItemFromCart}
                         />
             })}    
         </div>
+        <span className='Total'>
+            Total: 
+            {cartTotal}
+        </span>
     </div>
   )
 }
