@@ -1,3 +1,6 @@
+import styled from 'styled-components';
+
+export const ProductsContainer = styled.
 .products-container {
     display: grid;
     grid-template-columns:  repeat(4, 1fr);
