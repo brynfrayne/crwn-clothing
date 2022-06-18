@@ -1,12 +1,11 @@
   import styled from 'styled-components';
-  
-  
-  
+
   export const BackgroundImage = styled.div`
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
+  background-image: ${({imageUrl}) => `url(${imageUrl})`};
   `;
   
   export const Body = styled.div`
@@ -26,6 +25,7 @@
     margin: 0 6px 0;
     font-size: 22px;
     color: #4a4a4a;
+    text-transform: upperCase;
   }
 
   p {
@@ -44,10 +44,6 @@
   border: 1px solid black;
   margin: 0 7.5px 15px;
   overflow: hidden;
-  
-  &.large {
-    height: 380px;
-  }
 
   &:first-child {
     margin-right: 7.5px;
