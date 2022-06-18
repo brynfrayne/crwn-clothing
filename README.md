@@ -118,7 +118,7 @@ Set the `publishableKey` variable in the `stripe-button.component.jsx` with your
 
 ```bash
 # Clone your fork
-$ git clone https://github.com/francianepovoa/crwn-clothing.git
+$ git clone https://github.com/brynfrayne/crwn-clothing.git
 
 $ cd crwn-clothing
 
