@@ -6,9 +6,9 @@ import './shop.styles.jsx';
 export default function Shop() {
   
   return (
-    <Routes>
-      <Route index element={<CategoriesPreview/>} />
-      <Route path=':category' element={<Category/>} />
-    </Routes>
+        <Routes>
+          <Route index element={<CategoriesPreview/>} />
+          <Route path=':category' element={<Category/>} />
+        </Routes>
   );
 };
