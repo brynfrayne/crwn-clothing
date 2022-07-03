@@ -17,7 +17,7 @@ export default function ProductCard( { product }) {
             <Name>{name}</Name>
             <Price>{price}</Price>
         </Footer>
-        <Button buttonType='inverted' onClick={addProductToCart} >Add to card</Button>
+        <Button buttonType='inverted' onClick={addProductToCart} >Add to cart</Button>
     </ProductCartContainer>
   )
 }

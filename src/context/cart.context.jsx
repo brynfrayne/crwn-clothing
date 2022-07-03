@@ -30,10 +30,6 @@ const deleteItem = (cartItems, cartItemToRemove) => {
     return cartItems;
 }
 
-const totalCalculator = (cartItems) => {
-    return cartItems.reduce((total, cartItem) => total + cartItem.price, 0);
-}
-
 
 export const CartContext = createContext({
     isCartOpen: false,
@@ -81,7 +77,7 @@ const cartReducer = (state, action) => {
 
 export const CartProvider = ({ children }) => {
 
-    const [{ cartItems, isCartOpen, cartCount, cartTotal }, dispatch] = (
+    const [{ cartItems, isCartOpen, cartCount, cartTotal }, dispatch] = useReducer(
         cartReducer, 
         INITIAL_STATE
         );
@@ -127,7 +123,6 @@ export const CartProvider = ({ children }) => {
         addItemToCart, 
         cartItemDecrement, 
         deleteItemFromCart, 
-        // cartTotalCalculator,
         cartItems, 
         cartCount,
         cartTotal 
