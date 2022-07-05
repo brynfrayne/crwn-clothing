@@ -6,8 +6,12 @@ import Shop from './routes/Shop/shop.component';
 import Authentication from './routes/Authentication/authentication.component';
 import Checkout from './routes/Checkout/checkout.component';
 import { useEffect } from 'react';
-import { createUserDocumentFromAuth, onAuthStateChangedListener } from './utils/firebase/firebase.utils';
+import { createUserDocumentFromAuth, 
+         onAuthStateChangedListener, 
+         getCategoiesAndDocuments 
+        } from './utils/firebase/firebase.utils';
 import { setCurrentUser } from './store/user/user.action';
+import { setCategoriesMap } from './store/categories/category.action';
 
 function App() {
   const dispatch = useDispatch();
